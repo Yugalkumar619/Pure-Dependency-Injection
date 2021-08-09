@@ -30,9 +30,12 @@ class MainActivity : AppCompatActivity() {
 //            .inject(this)
 //        smartPhone.makeACallWithRecording()
 
-        DaggerSmartPhoneComponent.builder()
-            .memoryCardModule(MemoryCardModule(1000))
-            .build()
+//        DaggerSmartPhoneComponent.builder()
+//            .memoryCardModule(MemoryCardModule(1000))
+//            .build()
+//            .inject(this)
+
+        (application as SmartPhoneApplication).smartPhoneComponent
             .inject(this)
     }
 }
