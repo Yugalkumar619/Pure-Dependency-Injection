@@ -2,9 +2,10 @@ package com.anushka.didemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var smartPhone: SmartPhone
+    @Inject lateinit var smartPhone: SmartPhone
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +27,8 @@ class MainActivity : AppCompatActivity() {
 //        smartPhone.makeACallWithRecording()
 
         DaggerSmartPhoneComponent.create()
-            .getSmartPhone()
-            .makeACallWithRecording()
+            .inject(this)
 
+        smartPhone.makeACallWithRecording()
     }
 }
